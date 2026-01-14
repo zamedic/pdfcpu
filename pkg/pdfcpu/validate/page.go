@@ -651,6 +651,10 @@ func validateMeasureDict(xRefTable *model.XRefTable, d types.Dict, sinceVersion 
 		return err
 	}
 
+	if *coordSys == "GEO" {
+		return nil
+	}
+
 	if *coordSys != "RL" {
 		if xRefTable.Version() > sinceVersion {
 			// unknown coord system
